@@ -25,28 +25,35 @@ features of the websites are functional. Delete node_modules directory in case o
 
 
 #Technology and Process Description:
+
+
 $ Admission Portal uses live textual data present on https://core.letsenrol.com/api/partner-
 colleges-universities. This link can be changed to fetch any other country’s data by
 transforming respective variables such as exam type, thus making it a portable application.
 The aim is to make a website that takes dynamic updates presented via a server as mentioned
 in final project description of this course
+
 $ Login and register function on Admission Portal uses passport API’s that take respective
 ‘secret’ keys from Google, Facebook, and Twitter. The cookie calculator is simple jwt function
 that uses secret key ‘anamika’ to generate cookie value expiring in 24 hours. Note - Today's
 websites such as Microsoft employs a much better implementation of cookies/unique keys to
 deal with 100 Million requests each day and the same functionality can be extended to
 Admission Portal once the user base reaches that goal
+
 $ The college data can be filtered at a real-time based on the variables on left of collage page
 extracted from the data received from the server. The data loading integrates Angular loading
 bar at the top as the get function fetches data from the server into local MongoDB
+
 $ The collage comparator is able to compare up to 3 colleges simultaneously. Comparing depends
 upon the available data variables fetched by the server. If there are no courses listed on the
 respective college drop-down menu, the compared values do not populate but the same
 information can be eventually gathered by clicking more college information button from the
 collage page
+
 $ The animation presented on homepage uses simple JavaScript that takes classes such as fade in
 left, fade in right or zoom in to show a bunch of information to the user but at the same time
 presenting website’s motive and how it can help to prospective students in a brief display
+
 $ The register page and contact page use Nodemailer module of NodeJS which in turn uses
 Sendgrid API with username ‘prashaw’ (credentials owned by Prashant) to send emails from
 the local. The same functionality can be extended into various other functions such as
@@ -57,6 +64,7 @@ email-based requests
 
 
 #Future work:
+
 To make the application more scalable, database technology could be changed to DynamoDB
 which takes care of millions of requests. Additionally, Node provides the ability to create multiple v8
 instances of node using node's child process ( childProcess.fork() ) each requiring 10mb memory as per
