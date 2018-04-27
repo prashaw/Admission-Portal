@@ -3,9 +3,9 @@ INFSCI 2560 WEB TECHNOLOGIES & STANDARDS
 Final Project: Admission Portal
 15 th April 2018
 Team Member s:
-Prashant Wankhede (PRW19@pitt.edu)
-Lei Bao (LEB129@pitt.edu)
-Bowen Xu (BOX3@pitt.edu)
+Prashant Wankhede 
+Lei Bao 
+Bowen Xu 
 # Author: Prashant Wankhede (prw19), Lei Bao (leb129), Bowen Xu (box3)
 # Date: 15th April 2018
 # Admission Portal is a 'MEAN STACK' application
