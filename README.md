@@ -22,6 +22,8 @@ http://localhost:3000/
 4. Create an account either by registering directly or through social websites. All
 Steps should be similar on MacOSX or Linux based environment
 features of the websites are functional. Delete node_modules directory in case of conflict and run again
+
+
 #Technology and Process Description:
 $ Admission Portal uses live textual data present on https://core.letsenrol.com/api/partner-
 colleges-universities. This link can be changed to fetch any other country’s data by
@@ -51,6 +53,9 @@ the local. The same functionality can be extended into various other functions s
 subscribe to a newsletter or refer a friend or export history to emails or send/receive
 application reports to universities to pretty much anything a standard website does to control
 email-based requests
+
+
+
 #Future work:
 To make the application more scalable, database technology could be changed to DynamoDB
 which takes care of millions of requests. Additionally, Node provides the ability to create multiple v8
