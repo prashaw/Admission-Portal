@@ -1,0 +1,327 @@
+
+
+<div class="container-fluid" >
+   
+   <div id="background_image" class="img-responsive" style="background: url(assets/img/section.jpg) 50% 0 no-repeat;background-size:100%;">
+   	     <div class="container">
+   	     	<div class="text-center col-md-12 desc-img">
+   	     		<img ng-src="{{collegedata.college_logo}}" height="100px">
+   	     	</div>
+   	     	<div class="col-md-10 col-md-offset-1 text-center">
+   	     		<h4 style="color:#fff;">{{collegedata.college_name}}
+   	     		<span style="font-size:12px;"> -{{collegedata.college_city}}</span>
+   	     		</h4>
+   	     		<h6><span style="color:#fe9d68;text-transform:uppercase;"><span> 
+   	     				<i class="fa fa-map-marker"></i> {{collegedata.college_state}}| </span> <span><i class="fa fa-university"></i> {{collegedata.college_type}} |</span><span><i class="fa fa-map-signs"></i> ESTD {{collegedata.college_estb_year}} |</span> <span> <i class="fa fa-trophy"></i> NAAC - {{collegedata.college_nacc}} |</span><span> <i class="fa fa-star"></i> NBA - {{collegedata.college_nba}} |</span><span> <i class="fa fa-map"></i> CAMPUS AREA -{{collegedata.college_campus_area}}</span></span>
+            
+            
+                </h6>
+   	     </div>
+   	  </div>
+   	     <!--end of container-->
+   </div>
+   
+</div>
+<!--end of container-fluid-->
+<div class="col-md-12 hidden-sm hidden-xs" style="background-color:#fff;">
+  <div class="col-md-8">
+        <div class="tabbable-panel" style="border:none;">
+            <div class="tabbable-line">
+                <ul class="nav nav-tabs desc-tab">
+                    <li id="overviewTab" class="active">
+                        <a href="" data-target="#tab_default_1" data-toggle="tab"> <i class="fa fa-home"></i> OVERVIEW </a>
+                    </li>
+                    <li id="detailedTab">
+                        <a href="" data-target="#tab_default_2" data-toggle="tab"> <i class="fa fa-file"></i> COURSES </a>
+                    </li>
+                    <li>
+                        <a href="" data-target="#tab_default_3" data-toggle="tab"> <i class="fa fa-building"></i> FACILITIES </a>
+                    </li>
+                    <li>
+                        <a href="" data-target="#tab_default_4" data-toggle="tab"> <i class="fa fa-black-tie"></i> JOBS </a>
+                    </li>
+                    <!---->
+                   
+                </ul>
+                <!--end of ul tag-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_default_1">
+                        
+                        <div class="desc-tab-content">
+                         <p style="font-size:16px;color:#fe9d68;font-weight:600;"> ABOUT {{collegedata.college_name}} </p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12"> <img style="float:left;width:200px;height:200px; margin-right:10px;" ng-src="{{collegedata.college_profile}}">
+                                    <p style="font-size:12px;font-style: italic;">{{collegedata.college_about}}</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!---->
+                        <div class="desc-tab-content">
+                            <p style="font-size:16px;color:#fe9d68;font-weight:600;"> Top Courses </p> <a href="" data-target="#tab_default_2" data-toggle="tab" style="font-size:12px;font-weight:600; color: #fe9d68;" id="view-detailed"> View Detailed Information </a>
+                            <hr>
+                            <ul class="list-inline text-center"  >
+                                <li style="box-sizing: border-box; margin-right: 20px;margin-bottom: 10px; display: inline-block;" ng-repeat="course in collegedata.collegecourses ">  
+                                   <span style="font-size: 12px;font-weight: 400;border: 1px solid #fff;border-color:#ddd;border-radius: 5px;padding: 6px 12px;display: block;" > 
+                                    {{course.coursename}} 
+                                   </span>
+                                 </li><!---->
+                            </ul>
+                        </div>
+                        <div class="desc-tab-content">
+                            <p style="font-size:16px;color:#fe9d68;font-weight:600;"> FACILITIES </p>
+                            <hr>
+                            <ul class="list-inline text-center">
+                                <li style="box-sizing: border-box; margin-right: 20px;margin-bottom: 10px;" ng-repeat="facility in collegedata.collegefacilities"> 
+                                <span style="font-size: 12px;font-weight: 400;border: 1px solid #fff;border-color:#ddd;border-radius: 5px;padding: 6px 12px;display: block;"> 
+                                    <img ng-src="{{facility.facilityimage}}" width="50px">
+                                    <p>{{facility.facility}}</p>
+                                 </span> 
+                                 </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--end of tab_default_1-->
+                    <div class="tab-pane" id="tab_default_2">
+                        <input placeholder="Search Course" ng-model="searchCourse" style="border:8px solid #ddd;width:100%;padding:8px; height:60px;font-size:20px;text-align:center;" autofocus="" type="text">
+                           
+	                            <div class="tab-pane  desc-tab-content col-md-12 col-sm-12 col-xs-12" id="4043"  ng-repeat="course in collegedata.collegecourses | filter: searchCourse">
+	                                <div class="col-md-9 col-sm-12 col-xs-12 desc-tab-content-mobile">
+	                                    <p style="font-size: 20px;color:#fe9d68;font-weight:600; "> {{course.coursename}} </p>
+	                                </div>
+	                                <div class="col-md-3 col-sm-12 col-xs-12 text-right desc-details-mobile" >
+	                                    <p style="font-size: 14px;color:black; "><span style="color:#fe9d68;font-weight: 600; ">Total Fee :</span> <i class="fa fa-inr" style="color: #fe9d68"></i> {{course.fee}} </p>
+	                                </div>
+	                                <hr>
+	                                <div class="col-md-6 col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:15px;font-weight: 600;color: black; "><span> <i class="fa fa-clock-o " style="color: #fe9d68"></i>{{course.duration}} </span>|<span>  <i class="fa fa-book "></i>{{course.coursetype}}</span> </p>
+	                                </div>
+	                                <div class="col-md-5 col-md-offset-1 text-right col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:14px;color:black; "><span style="color:#fe9d68;font-weight: 600; "><i class="fa fa-check-square"></i> Eligibility : </span>{{course.eligibility}}</p>
+	                                </div>
+	                                <div class="col-md-8 col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:12px; "><span style="color:#fe9d68;"><i class="fa fa-thumbs-up "></i> Approved By : </span>{{course.approval}}</p>
+	                                </div>
+	                                <div class="col-md-4 text-right col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:12px; "><span style="color:#fe9d68;"><i class="fa fa-check "></i> Affiliated To :</span> {{course.aff}}</p>
+	                                </div>
+	                                <div class="col-md-6 col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:12px; "><i class="fa fa-graduation-cap"></i><span style="color:#fe9d68;font-weight: 600; "> No. of Seats : </span>{{course.seats}}</p>
+	                                </div>
+	                                <div class="col-md-6 text-right col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:12px; "><i class="fa fa-users "></i><span style="color:#fe9d68;font-weight: 600; ">GD/Interview : </span>{{course.gdinterview}}</p>
+	                                </div>
+	                                <div class="col-md-6 col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:12px; "><i class="fa fa-angle-double-right "></i><span style="color:#fe9d68;font-weight: 600; ">Quota : </span>{{course.quota}}</p>
+	                                </div>
+	                                <div class="col-md-6 text-right col-sm-12 col-xs-12 desc-details-mobile">
+	                                    <p style="font-size:12px; "><i class="fa fa-users "></i><span style="color:#fe9d68;font-weight: 600; ">Other Fee : </span>{{course.ofee}}</p>
+	                                </div>
+	                                                          <!--start of branch-->
+			                          <div class="panel-group col-md-12 " id="accordion " >
+
+												 <div class="panel panel-default" ng-show="course.branches.length>0">
+			                                        <div class="panel-heading " style="background-color:#fe9d68; ">
+			                                            <h4 class="panel-title " style="color:#fff; ">
+			                    							<a data-toggle="collapse " data-parent="#accordion " href="" data-target="#collapseOne ">BRANCHES </a>
+			                							</h4> 
+			                					    </div>
+			                                        <div id="collapseOne " class="panel-collapse collapse in ">
+			                                            <div class="panel-body " ng-repeat="br in course.branches">
+			                                             <div class="col-md-9 ">{{br.branchname}}</div>
+			                                                <div class="col-md-3 "> <i class="fa fa-inr "></i> {{br.branchfee}}</div>
+			                                            </div>
+			                                        </div>
+			                                    </div>
+				                      </div>
+	                            <!--end of branch--> 
+	                              <div class="panel-group col-md-12 " id="accordion " >
+
+	                                <div class="panel panel-default" ng-show="course.branches.length>0" style="margin-top: 4px;">
+                                        <div class="panel-heading " style="background-color:#fe9d68; ">
+                                            <h4 class="panel-title " style="color:#fff; ">
+                    							<a data-toggle="collapse " data-parent="#accordion " href="" data-target="#collapseTwo ">EXAM SCORES</a>
+                							</h4> 
+                					  </div>
+                                        <div id="collapseTwo " class="panel-collapse collapse in">
+                                            <div class="panel-body" ng-repeat="exam in course.exams">
+                                                <div class="col-md-4">{{exam.examname}}</div>
+                                            </div><!---->
+                                        </div>
+                                    </div>
+	                              </div>     
+	                          </div> 
+	                           
+                          
+
+                    </div>
+                  <!--end of tab_default_2-->
+                  
+                    <div class="tab-pane desc-tab-content" id="tab_default_3">
+                        <ul class="list-inline text-center">
+                            <li style="box-sizing: border-box; margin-right: 20px;margin-bottom: 10px;" ng-repeat="facility in collegedata.collegefacilities"> <span style="font-size: 12px;font-weight: 400;border: 1px solid #fff;border-color:#ddd;border-radius: 5px;padding: 6px 12px;display: block;"> 
+                                    <img ng-src="{{facility.facilityimage}}" width="50px">
+                                    <p>{{facility.facility}}</p>
+                                    </span> 
+                               </li>
+                        </ul>
+                       </div>
+
+                                
+                    <!--end of tab_default_3-->
+                    <div class="tab-pane desc-tab-content" id="tab_default_4">
+                        <div class="panel-body">
+                            
+                        </div>
+                        <div class="panel-body text-center row">
+                            <div class="col-md-4">
+                                <div class="panel panel-default ">
+                                    <div class="panel-heading text-center" style="background-color:#fe9d68; ">
+                                        <h4 class="panel-title " style="color:#fff; margin-left:20%">
+                    							<a data-toggle="collapse " data-parent="#accordion " href="" data-target="#collapseOne ">Minimum Fees   </a>
+                							</h4> </div>
+                                    <div id="collapseOne " class="panel-collapse collapse in ">
+                                        <div class="panel-body">
+                                            <div class="col-md-12" ng-show="collegedata.college_min_package.length >0 "><i class="fa fa-inr"></i>{{collegedata.college_min_package}}</div>
+                                            <div class="col-md-12  " ng-show="collegedata.college_min_package.length ==0 ">NA
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-default ">
+                                    <div class="panel-heading " style="background-color:#fe9d68; ">
+                                        <h4 class="panel-title " style="color:#fff; margin-left:20%">
+                    							<a data-toggle="collapse " data-parent="#accordion " href="" data-target="#collapseOne ">Out of state    </a>
+                							</h4> </div>
+                                    <div id="collapseOne " class="panel-collapse collapse in ">
+                                        <div class="panel-body">
+                                            <div class="col-md-12" ng-show="collegedata.college_avg_package.length>0"><i class="fa fa-inr"></i>{{collegedata.college_avg_package}}</div>
+                                            <div class="col-md-12  " ng-show="collegedata.college_avg_package.length==0">NA</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-default ">
+                                    <div class="panel-heading " style="background-color:#fe9d68; ">
+                                        <h4 class="panel-title " style="color:#fff; margin-left:20%">
+                    							<a data-toggle="collapse " data-parent="#accordion " href="" data-target="#collapseOne ">International     </a>
+                							</h4> </div>
+                                    <div id="collapseOne " class="panel-collapse collapse in ">
+                                        <div class="panel-body">
+                                            <div class="col-md-12" ng-show="collegedata.college_max_package.length>0"><i class="fa fa-usd"></i>{{collegedata.college_max_package}}</div>
+                                            <div class="col-md-12  ng-hide" ng-show="collegedata.college_max_package.length==0"> NA</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-inline text-center">
+                          <li style="box-sizing: border-box; margin-right: 20px;margin-bottom: 10px;" ng-repeat="company in collegedata.collegeplacement"> 
+	                          <span style="font-size: 12px;font-weight: 400;border: 1px solid #fff;border-color:#ddd;border-radius: 5px;padding: 6px 12px;display: block;"> 
+	                                   <img ng-src="{{company.companylogo}}" width="150px">
+	                                        <hr>
+	                                        <p style="color:#fe9d68;">{{company.companyname}}</p>
+	                          </span>
+                         </li>
+                       </ul>
+                    </div>
+                    <!--end of tab_default_4-->
+                    
+                    
+                </div>
+               <!--end of tab-content-->
+            </div>
+            <!--end of tabbable-line-->
+        </div>
+        <!--end of tabbable-panel-->
+  </div>
+  <!--end of col-md-8-->
+
+  <!--starting of col-md-4-->
+    <div class="col-md-4 detail-sidebar">
+        <div class="col-md-12 apply-btn-div" ng-show="collegedata.ispartner"> 
+	        <button class="btn apply-btn" style="background-color: #4CAF50;" ng-model="collegeId" data-toggle="modal" data-target="#myModal" ng-click="applyForm(id, cnm)"><i class="fa fa-paper-plane" style="color:white"></i>APPLY FOR ADMISSION
+	        </button>
+             <!-- Modal -->
+              <div class="modal fade" id="myModal" role="dialog" ng-show="isLogdIn">
+                <div class="modal-dialog" style="width: 63%">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content" style="height: 56vh">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title text-center">{{cnm}}</h4>
+                    </div>
+                    <div class="modal-body col-md-12">
+                       <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+                           <div class="col-md-6 col-sm-12 col-xs-12"><i class="fa fa-user fa-lg"></i>{{username}}</div>
+                           <div class="col-md-6 col-sm-12 col-xs-12"><i class="fa fa-envelope fa-lg"></i>{{useremail}}</div>
+                       </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                       <div class="col-md-6 col-sm-12 col-xs-12"> 
+                        <select ng-options="course.coursename for course in collegedata.collegecourses track by course.id" ng-change="getbranch(course.id);" ng-model="course">
+                           <option value="" >- Please Select courcollegecourses -</option>
+                        </select>
+                       
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
+                         <select  ng-model="branch" ng-options="branch.br for branch in branches">
+                          <option value="">please select branch</option>
+                        </select>
+                       </div>
+                       
+                    </div>
+                    
+                  </div>
+                               <button style="margin: auto; display: block;" ng-click="applycolg(); applymsg=true" > Apply</button>
+                               <div class="alert alert-success text-center" ng-show="applymsg">{{msg}}</div>
+                </div>
+              </div>
+	        
+	    </div>
+  
+
+        
+       
+         <div class="col-md-12">
+             <div class="desc-tab-content " style="padding:0px;margin-top:10px; ">
+	                <div class="desc-tab-header">
+	                    <p class="apply-btn" style="margin:0px; color:white;"> <i class="fa fa-map-signs" style="margin:0px; color:white;" ></i> CONTACT
+	                    </p>
+	                </div>
+	                <div class="desc-tab-body contact_data ">
+	                    <h4 style="text-decoration:underline; color:black; margin-left: 10px; " ng-show="collegedata.college_contact_person.length>0">{{collegedata.college_contact_person}}</h4>
+	                    <p ng-show="collegedata.college_address_1.length>0" class="">{{collegedata.college_address_1}}</p>
+	                    <p ng-show="collegedata.college_address_2.length>0">{{collegedata.college_address_2}}</p>
+	                    <p ng-show="collegedata.college_city.length>0">{{collegedata.college_city}} : {{collegedata.college_pincode}}</p>
+	                    <p style="text-transform:upper;"> {{collegedata.college_state}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_email_1.length>0" class=""><i class="fa fa-envelope "></i> : {{collegedata.college_email_1}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_email_2.length>0"><i class="fa fa-envelope "></i> :{{collegedata.college_email_2}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_email_3.length>0"><i class="fa fa-envelope "></i> : {{collegedata.college_email_3}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_email_4.length>0" ><i class="fa fa-envelope "></i> : {{collegedata.college_email_4}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_phone_1.length>0" class=""><i class="fa fa-phone "></i> : {{collegedata.college_phone_1}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_phone_2.length>0" class=""><i class="fa fa-phone " aria-hidden="true "></i> : {{collegedata.college_phone_2}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_phone_3.length>0"><i class="fa fa-phone "></i> : {{collegedata.college_phone_3}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_phone_4.length>0"><i class="fa fa-phone "></i> : {{collegedata.college_phone_4}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_mobile_1.length>0"><i class="fa fa-mobile "></i> : {{collegedata.college_mobile_1}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_mobile_2.length>0"><i class="fa fa-mobile "></i> :{{collegedata.college_mobile_2}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_mobile_3.length>0" ><i class="fa fa-mobile " ></i> : {{collegedata.college_mobile_3}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_mobile_4.length>0"><i class="fa fa-mobile " aria-hidden="true "></i> : {{collegedata.college_mobile_4}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_mobile_5.length>0"><i class="fa fa-mobile "></i> :{{collegedata.college_mobile_5}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_mobile_6.length>0" ><i class="fa fa-mobile "></i> : {{collegedata.college_mobile_6}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_toll_free.length>0"><i class="fa fa-phone-square "></i> :{{collegedata.college_toll_free}} </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_toll_free_2.length>0"><i class="fa fa-phone-square " ></i> : {{collegedata.college_toll_free_2}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_fax.length>0" class=""><i class="fa fa-fax"></i> : {{collegedata.college_fax}}</p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_website.length>0" class=""><i class="fa fa-link " ></i> : <a href="{{collegedata.college_website}} " target="_blank ">{{collegedata.college_website}}</a> </p>
+	                    <p style="text-transform:lowercase;" ng-show="collegedata.college_website_2.length>0" ><i class="fa fa-link " ></i> :<a href=" {{collegedata.college_website_2}} " target="_blank ">  {{collegedata.college_website_2}}</a> </p>
+	                </div>
+            </div>
+         </div>
+            </div>
+  <!--ending of col-md-4-->
+  
+</div>

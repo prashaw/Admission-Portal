@@ -1,0 +1,261 @@
+
+ 
+
+
+<div class="container-fluid" >
+    <!--start of row-->
+    <div class="row"  >
+            
+               <!--start of col-3-->       
+               <div class="col-sm-3" style="margin-top: 20px;" >
+            
+                <!--selected filter-->
+                  <div class="filter-box" ng-if="selectedFilter">
+                    <div class="filter-header">
+                        <div class="filter-heading"> Selected Filters </div>
+                        <span ng-repeat="fn in filter_name" class="filter-selected">{{fn}}</span>
+                    </div>
+                  </div>
+
+                  <div class="filter-box" >
+                       <div class="filter-header">
+                            <div class="filter-heading">
+                              <b>Colleges</b>
+                            </div>
+                            <input type="text" placeholder="Search Colleges" class="filter-search" ng-model="search">
+                       </div>
+                     
+                  </div>
+                  <!--end of course filter-->
+                     <!--state filter-->
+                    <div class="filter-box">
+                        <div class="filter-header">
+                          <div class="filter-heading"><b>States</b></div>
+                             <input type="text" placeholder="Search" class="filter-search" ng-model="state_search">
+                        </div>
+                        <div class="filter-section">
+                            <div  ng-repeat="data in data_list| filter :state_search" data-spy="scroll" data-target="     #checkbox" data-offset="50"  >
+                    
+                                <input id="checkbox"  ng-click="stateupdate(data.id,$event,data.text)" type="checkbox" name="data">{{data.text}}
+                    
+                           </div>
+                       </div>
+                    </div>
+                    <!--college type-->
+                    <div class="filter-box">
+		                    <div class="filter-header">
+		                        <div class="filter-heading"><b> College Type</b> </div>
+		                    </div>
+		                    <div class="filter-section" >
+		                         <div ng-repeat="clgtype in collegetypedata" data-spy="scroll" data-target="     #checkbox" data-offset="50"  >
+		                            
+		                             <input  type="checkbox" ng-click="collegetypeupdate(clgtype.id,$event,clgtype.text)" name="clgtype" > {{clgtype.text}}
+		                            
+		                        </div>
+		                        
+		                    </div>
+                    </div>
+                    <!--course TYPE-->
+                    <div class="filter-box">
+		                    <div class="filter-header">
+		                        <div class="filter-heading"><b> Course Type</b> </div>
+		                    </div>
+		                    <div class="filter-section" >
+		                         <div ng-repeat="crstype in coursetypedata" data-spy="scroll" data-target="#checkbox" data-offset="50" >
+		                            
+		                             <input type="checkbox" ng-click="coursetypeupdate(crstype.id,$event,crstype.text)" name="crstype" > {{crstype.text}}
+		                            
+		                        </div>
+		                        
+		                    </div>
+                    </div>
+                      <!--end of couse TYPE-->
+                       <!--courses filter-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>Courses</b></div>
+                             <input type="text" placeholder="Search Courses" class="filter-search" ng-model="course_search">
+                          </div>                    
+                          <div class="filter-section">
+                           
+                              <div  ng-repeat="course in courses |filter:course_search track by course.id  " data-spy="scroll" data-target="#checkbox" data-offset="50"  >
+                  
+                        <input id="checkbox" type="checkbox" name="course" ng-click="forbranches(course.id);courseupdate(course.id,$event,course.coursename)">{{course.coursename}}
+                  
+                               </div>
+                          </div>  
+                     </div>
+                     <!--end of course filter-->
+                    <!--Branches filter-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>Branches</b></div>
+                             <input type="text" placeholder="Search Branches" class="filter-search" ng-model="branch_search">
+                          </div>                    
+                          <div class="filter-section">
+                              <div ng-repeat="branch in branches|filter:branch_search" data-spy="scroll" data-target="#checkbox" data-offset="50">
+                      
+                            <input type="checkbox" name="branch" ng-click="branchupdate(branch.id,$event,branch.br)">{{branch.br}}
+                      
+                              </div>
+                           <div class="text-center">PLEASE SELECT COURSES</div>
+                              
+                          </div>  
+                     </div>
+                     <!--end of branch filter-->
+
+                     <!--Exam filter-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>Exams</b></div>
+                             <input type="text" placeholder="Search Exams" class="filter-search" ng-model="exam_search">
+                          </div>                    
+                          <div class="filter-section">
+                             <div  ng-repeat="exm in examlist | filter:exam_search" data-spy="scroll" data-target="#checkbox" data-offset="50"  >
+                    
+                           <input id="checkbox" type="checkbox" ng-checked="all" ng-click="examupdate(exm.id,$event,exm.ex)" name="exm">{{exm.ex}}
+                    
+                            </div>
+                          </div>  
+                    </div>
+                     <!--Affiliation-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>AFFILIATION</b></div>
+                             <input type="text" placeholder="Search Affiliation" class="filter-search" ng-model="aff_search">
+                          </div>                    
+                          <div class="filter-section">
+                             <div  ng-repeat="afm in afmlist | filter:aff_search" data-spy="scroll" data-target="#checkbox" data-offset="50"  >
+                    
+                  <input id="checkbox" type="checkbox" ng-click="affiliationupdate(afm.affiliations,$event,afm.affiliations)" name="afm">{{afm.affiliations}}
+                    
+                     </div>
+                          </div>  
+                    </div>
+
+                     <!--Approval-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>Approval</b></div>
+                             <input type="text" placeholder="Search Approval" class="filter-search" ng-model="approval_search">
+                          </div>                    
+                          <div class="filter-section">
+                             <div  ng-repeat="aprvl in aprvllist | filter:approval_search " data-spy="scroll" data-target="#checkbox" data-offset="50"  >
+                    
+                  <input id="checkbox" type="checkbox" ng-checked="all" ng-click="approvalupdate(aprvl.id,$event,aprvl.approval)" name="aprvl">{{aprvl.approval}}
+                    
+                     </div>
+                          </div>  
+                    </div>
+
+                     <!--FEE-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>FEE</b></div>
+                             
+                          </div>                    
+                          <div class="filter-section" >
+                             
+				                  
+				                <div ng-repeat="fee in feeList" data-spy="scroll"          data-target="#checkbox" data-offset="50">
+		                            
+		                             <input type="checkbox" ng-click="feesupdate(fee.value,$event,fee.text)" name="fee" > {{fee.text}}
+		                            
+		                        </div>
+		                        
+                         </div>  
+                    </div>
+                    <!--end of fees-->
+
+                     <!--COURSE DURATION-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>COURSE DURATION</b></div>
+                             
+                          </div>                    
+                          <div class="filter-section" >
+                             
+                         
+                              
+				                <div ng-repeat="dur in durList" data-spy="scroll"          data-target="#checkbox" data-offset="50">
+		                            
+		                             <input type="checkbox" ng-click="courseduration(dur.value,$event,dur.text)" name="dur"> {{dur.text}}
+		                            
+		                        </div>
+                     
+                          </div>  
+                    </div>
+                     <!--end of COURSE DURATION-->
+                       
+
+                          <!--ACCREDITATION-->
+                     <div class="filter-box">
+                          <div class="filter-header">
+                             <div class="filter-heading"><b>ACCREDIATED</b></div>
+                             
+                          </div>                    
+                          <div class="filter-section" >
+                          <form class="">
+                            <input type="radio" id="1" ng-model="checked" ng-change="Accrediatation(checked)" value="1" name="radio">YES
+                            <input type="radio" id="2" ng-model="checked" ng-change="Accrediatation(checked)" value="0" name="radio">NO
+                          </form>   
+                
+                     
+                          </div>
+                           
+
+
+                    </div>
+                  <!--end of ACCREDITATION-->
+
+               </div>
+               <!--end of col-3-->
+             <br>
+             <!--college data-->
+             <!--start of col-9-->
+           
+             <div class="col-md-9">
+                  
+                <div class=" well well-sm" ng-repeat="data in mycolgdata|filter:search|startFrom:(pagination.currentPage-1)*pagination.pageSize|limitTo:pagination.pageSize">
+                  <div class="row" >
+                     
+                       <div class="col-sm-2">
+                           <!-- ng-src instead of src to allow correct functionality with angular -->
+     
+                            <div><img ng-src="{{data.log}}"
+                            class=" thumbnail img-rounded img-responsive well-image col-xs-12 "></div>
+                       </div>
+
+                        <div class="col-sm-7 ">
+                           
+                          <p><h4 style="color: #F26522; cursor: pointer;" ng-click="collegedetail(data.cid,data.slug)">{{data.cnm}}</h4></p>
+                                    
+                           <p>{{data.des}}</p>
+                           <div class="des-tab-link">
+                           	   <div class="desc-tap-box ib">
+                           	   	   <span class="icon "><i class="fa fa-cubes"></i></span> 
+                           	   	   <span class="text-primary-color">{{data.ctp}}</span>
+                           	   </div>
+                           	   <div class="desc-tap-box ib"> <span class="icon"><i class="fa fa-clock-o"></i></span> <span class="text-primary-color">{{data.eyr}}</span> </div>
+                           	   <div class="desc-tap-box ib"><span class="icon"><i class="fa fa-map"></i></span> <span class="text-primary-color"> Acers</span> </div>
+                           	   <div class="desc-tap-box ib"> <span class="icon"><i class="fa fa-info"></i></span> <span><a class="text-primary-color " href="" ng-click="collegedetail(data.cid,data.slug)">Know More..</a></span> </div>
+                           	   
+                           </div>
+                        </div>
+                       <!--end of col-sm-7-->
+                 
+                  </div>
+               </div>
+               <pagination total-items="mycolgdata.length" ng-model="pagination.currentPage" items-per-page="pagination.pageSize" ></pagination>
+            </div>
+             <!--end of col-9-->
+
+             
+    </div>
+     <!--end of row-->
+
+</div>
+ <!--end of container-fluid-->
+
+
+        

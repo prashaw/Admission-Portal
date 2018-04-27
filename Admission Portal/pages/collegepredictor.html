@@ -1,0 +1,179 @@
+<div class="container-fluid">
+   <div class="row"> 
+   	  <div id="onimage" style="background: url(assets/img/section.jpg) 50% 0 no-repeat;" class="img-responsive"><h1>College Predictor</h1></div>
+   </div>
+	
+</div>
+<div class="conatainer" ng-hide="showme">
+
+	<div class="col-md-12 col-xs-12"  style="background-color:#fff;padding:30px;">
+    <form>
+        <div class="col-md-12 col-xs-12 " >
+            <div class="col-md-12 col-xs-12 ">
+                <div class="col-md-4 col-xs-12 ">
+                    <div class="col-md-5 col-xs-5">
+                        <label>12th appeared from which state</label>
+                    </div>
+                   <div class="col-md-7 col-xs-7">
+                     <select ng-model="boardstate" style="width: 100%;" ng-options="state.id as state.text for state in data_list" required="">
+
+                     <option value="" selected="selected">- Please Select State -</option>
+                     </select>
+                       
+                    </div>
+                </div>
+                <!--end of col-md-4--> 
+                <div class="col-md-4 col-xs-12">
+                    <div class="col-md-5 col-xs-5">
+                        <label>Prefered Branch</label>
+                    </div>
+                    <div class="col-md-7 col-xs-7">
+                        <select ng-model="branch" style="width: 100%;" ng-options="branch.id as branch.br for branch in branches" required="">
+                         <option value="" selected="selected">- Please Select branch -</option>
+                       </select>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="col-md-5 col-xs-5">
+                        <label>Category</label>
+                    </div>
+                    <div class="col-md-7 col-xs-7">
+                      <select ng-model="cat" style="width: 100%;" required="" ng-options="Category.id as Category.text for Category in category">
+                      <option value="" selected="selected"> Please Select Category </option>
+                      
+                      </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12">
+                <div class="col-md-4 col-xs-12">
+                    <div class="col-md-5 col-xs-5">
+                        <label>10th %</label>
+                    </div>
+                    <div class="col-md-7 col-xs-7">
+                        <input placeholder="10th percentage" id="tenper" min="35" max="100" required="" type="number" style="width: 100%;" ng-model="ssc" > </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="col-md-5 col-xs-5">
+                        <label>12th %</label>
+                    </div>
+                    <div class="col-md-7 col-xs-7">
+                        <input placeholder="12th percentage" id="tweper" min="35" max="100" required="" type="number" style="width: 100%;" ng-model="hsc"> </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="col-md-5 col-xs-5">
+                        <label>PCM %</label>
+                    </div>
+                    <div class="col-md-7 col-xs-7">
+                        <input placeholder="PCM percentage" id="pcmper" min="35" max="100" required="" type="number" ng-model="pcm" style="width: 100%;" > </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-xs-12 col-md-offset-5" style="margin-top:30px;">
+            <button type="submit" class="btn apply-btn" ng-click="SendData()">PREDICT COLLEGE</button>
+        </div>
+    </form>
+
+  
+   
+   </div>
+</div>
+<div class="container-fluid well well-sm" ng-show="showme">
+     <div class="row" style="margin-left: 20px; margin-right: 20px;" >
+         <div class="col-md-3 hidden-xs" style="background-color:#fff;margin-top:20px;">
+            <div class="col-md-12 text-center predictor-update">
+                  <form>
+						        
+						            
+						                     <label style="margin-top:20px;">Update Criteria</label>
+						                     <hr>
+						                     <label>12th appeared from which state</label>
+						                    
+						                   
+						                     <select ng-model="boardstate" style="width: 100%;" ng-options="state.id as state.text for state in data_list" required="">
+
+						                     <option value="" selected="selected">- Please Select State -</option>
+						                     </select>
+						                      <hr>
+						                        <label>Prefered Branch</label>
+						                   
+						                    
+						                        <select ng-model="branch" style="width: 100%;" ng-options="branch.id as branch.br for branch in branches" required="">
+						                         <option value="" selected="selected">- Please Select branch -</option>
+						                       </select>
+						                   
+						                
+						                
+						                        <hr>
+						                        <label>Category</label>
+						                     <select ng-model="cat" style="width: 100%;" required="" ng-options="Category.id as Category.text for Category in category">
+						                      <option value="" selected="selected"> Please Select Category </option>
+						                      
+						                      </select>
+						                       <hr>
+						                       <label>10th %</label>
+						                   
+						                    <input placeholder="10th percentage" id="tenper" min="35" max="100" required="" type="number" style="width: 100%;" ng-model="ssc" > 
+						                
+						                
+						                   
+						                        <label>12th %</label>
+						              
+						                        <input placeholder="12th percentage" id="tweper" min="35" max="100" required="" type="number" style="width: 100%;" ng-model="hsc"> 
+						              
+						                
+						                    
+						                        <label>PCM %</label>
+						                   
+						                    
+						                        <input placeholder="PCM percentage" id="pcmper" min="35" max="100" required="" type="number" ng-model="pcm" style="width: 100%;">
+						                
+						          
+						        
+						        <div class="col-md-2 col-xs-12 col-md-offset-5" style="margin-top:30px;">
+						            <button type="submit" class="btn apply-btn" ng-click="SendData()" style="margin-left: -130px; width: 272px; margin-bottom: 28px; padding: 8px; ">PREDICT COLLEGE</button>
+						        </div>
+                     </form>
+            </div>
+        </div>
+        <!--end of col-3-->
+                  <!--college data-->
+             <!--start of col-9-->
+          
+             <div class="col-md-9" style="margin-top: 20px">
+                  
+                <div class=" well well-sm" ng-repeat="data in PostDataResponse | filter:search">
+                  <div class="row" >
+                     
+                       <div class="col-sm-2">
+                           <!-- ng-src instead of src to allow correct functionality with angular -->
+     
+                            <div><img ng-src="{{data.log}}"
+                            class=" thumbnail img-rounded img-responsive well-image col-xs-12 "></div>
+                       </div>
+
+                        <div class="col-sm-7 ">
+                           
+                          <p><h4 style="color: #F26522; cursor: pointer;" ng-click="collegedetail(data.cid,data.slug)">{{data.cnm}}</h4></p>
+                                    
+                           <p>{{data.des}}</p>
+                           <div class="des-tab-link">
+                           	   <div class="desc-tap-box ib">
+                           	   	   <span class="icon "><i class="fa fa-cubes"></i></span> 
+                           	   	   <span class="text-primary-color">{{data.ctp}}</span>
+                           	   </div>
+                           	   <div class="desc-tap-box ib"> <span class="icon"><i class="fa fa-clock-o"></i></span> <span class="text-primary-color">{{data.eyr}}</span> </div>
+                           	   <div class="desc-tap-box ib"><span class="icon"><i class="fa fa-map"></i></span> <span class="text-primary-color"> Acers</span> </div>
+                           	   <div class="desc-tap-box ib"> <span class="icon"><i class="fa fa-info"></i></span> <span><a class="text-primary-color " href="">Know More..</a></span> </div>
+                           	   <input type="checkbox" name=""><label style="padding:5px;">ADD TO COMPARE</label>
+                           </div>
+                        </div>
+                       <!--end of col-sm-7-->
+                 
+                  </div>
+               </div>
+            </div>
+              <!--end of col-9-->
+       </div>
+         <!--end of row-->  
+</div>

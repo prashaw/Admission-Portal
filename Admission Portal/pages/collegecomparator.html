@@ -1,0 +1,528 @@
+<div class="inner-head" style="margin-top: -17px;">
+  <div class="container">
+    <h1 class="entry-title">College Comparator </h1>
+  </div>
+</div>
+
+<div class="col-md-12 text-center compare-container" style="z-index:0;background-color:#fff;">
+  <div class="col-md-3 compare-tab text-center" style="padding: 10px;">
+    <div class="compare-body">
+      <div class="compare-header" style="height: 220px;">
+        <img ng-src="assets/img/compare.png" style="width: 100%;border: 1px solid #fff;padding: 10px;" src="assets/img/compare.png">
+      </div>
+      <div class="compare-list text-left" style="color:#f48c42;font-weight: bold;" ng-show="hidediv1 || hidediv2 || hidediv3">
+        <table class="table" style="width:100%;" >
+              <tbody>
+                <tr>
+                  <td class="col-md-12">
+                    <i class="fa fa-map-o"></i>
+                    Campus Area
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-12">
+                    <i class="fa fa-hotel-o"></i>
+                    Living Estimate
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-md-12">
+                    <i class="fa fa-building"></i>
+                    Other Fees
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 compare-tab text-center" style="padding: 10px;">
+    <div class="compare-empty-body" ng-model="hidediv1" ng-hide="hidediv1">
+      <div class="col-md-12 compare-select-form">
+        <i class="fa fa-university" aria-hidden="true"></i>
+        <h5>Select College</h5>
+        <input type="text" class="form-control" name="clg1" id="clg1" placeholder="Search College" ng-model="clg1" ng-keyup="complete1(clg1)" autocomplete="off" ng-blur="fillbox1()" />
+                 <br>
+                 <ul class="list-group" ng-model="hidethis1" ng-hide="hidethis1" style="position: absolute; z-index: 1; color: black; border-left:1px solid grey; overflow:auto; max-height: 250px; margin-top: -22px;">
+                  <li class="list-group-item" ng-repeat="clgdata1 in filtercolg1" ng-mousedown="fillTextbox1(clgdata1.college_id,clgdata1.college_name, clgdata1.college_slug)">
+
+                     <div class="row">
+                        <div class="col-md-4">
+                        <img src="{{clgdata1.college_logo}}" style="width: 100%;border: 1px solid #fff;padding: 10px;" >
+                        </div>
+                        <div class="col-md-8">
+                          <p>{{clgdata1.college_name}} </p>
+                        </div>
+                        </div>
+                     </li>
+                 </ul>
+
+                 <button class="btn apply-btn" ng-click="clgdetails1()">Select College</button>
+        
+        
+      </div>
+      
+    </div> <!-- when this (above ) div hides then the div below will show  -->
+
+    <div class="compare-body" ng-model="hidediv1" ng-show="hidediv1">
+      <div class="compare-header">
+        <img ng-src="{{clgdata1.college_logo}}" width="100px" class="compare-logo">
+        <h5 class="collegename-wrap">{{clgdata1.college_name }}  </h5>
+        <h6>
+          <span style="color:#fe9d68;">
+            <i class="fa fa-map-marker" aria-hidden="true"> {{clgdata1.college_city}}</i>
+          </span>
+        </h6>
+        <h6>
+          <span style="color:#fe9d68;">
+            <i class="fa fa-university" aria-hidden="true"> {{clgdata1.college_type}} </i>
+            <i class="fa fa-map-signs" aria-hidden="true">{{clgdata1.college_estb_year }}</i> | NACC-{{clgdata1.college_nacc }} | NBA-{{clgdata1.college_nba }}  
+          </span>
+        </h6>
+      </div>
+      <div class="compare-list text-left">
+        <div class="compare-list-content">
+          {{clgdata1.college_campus_area}}
+        </div>
+        <div class="compare-list-content">
+          <i class="fa fa-usd" aria-hidden="true">{{clgdata1.college_hotel_fee}}</i>
+        </div>
+        <div class="compare-list-content">
+          <i class="fa fa-usd" aria-hidden="true">{{clgdata1.college_other_fee}}</i>
+        </div>
+      </div>
+    </div>
+  </div>         
+
+<div class="col-md-3 compare-tab text-center" style="padding: 10px;">
+    <div class="compare-empty-body" ng-model="hidediv2" ng-hide="hidediv2">
+      <div class="col-md-12 compare-select-form">
+        <i class="fa fa-university" aria-hidden="true"></i>
+        <h5>Select College</h5>
+        <input type="text" class="form-control" name="clg2" id="clg2" placeholder="Search College" ng-model="clg2" ng-keyup="complete2(clg2)" autocomplete="off" ng-blur="fillbox2()" />
+                 <br>
+                 <ul class="list-group" ng-model="hidethis2" ng-hide="hidethis2" style="position: absolute; z-index: 1; color: black; border-left:1px solid grey; overflow:auto; max-height: 250px; margin-top: -22px;">
+                  <li class="list-group-item" ng-repeat="clgdata2 in filtercolg2" ng-mousedown="fillTextbox2(clgdata2.college_id,clgdata2.college_name, clgdata2.college_slug)">
+
+                     <div class="row">
+                        <div class="col-md-4">
+                        <img src="{{clgdata2.college_logo}}" style="width: 100%;border: 1px solid #fff;padding: 10px;" >
+                        </div>
+                        <div class="col-md-8">
+                          <p>{{clgdata2.college_name}} </p>
+                        </div>
+                        </div>
+                     </li>
+                 </ul>
+
+                 <button class="btn apply-btn" ng-click="clgdetails2()">Select College</button>
+        
+        
+      </div>
+      
+    </div> <!-- when this (above ) div hides then the div below will show  -->
+
+    <div class="compare-body" ng-model="hidediv2" ng-show="hidediv2">
+      <div class="compare-header">
+        <img ng-src="{{clgdata2.college_logo}}" width="100px" class="compare-logo">
+        <h5 class="collegename-wrap">{{clgdata2.college_name }}  </h5>
+        <h6>
+          <span style="color:#fe9d68;">
+            <i class="fa fa-map-marker" aria-hidden="true"> {{clgdata2.college_city}}</i>
+          </span>
+        </h6>
+        <h6>
+          <span style="color:#fe9d68;">
+            <i class="fa fa-university" aria-hidden="true"> {{clgdata2.college_type}} </i>
+            <i class="fa fa-map-signs" aria-hidden="true">{{clgdata2.college_estb_year }}</i> | NACC-{{clgdata2.college_nacc }} | NBA-{{clgdata2.college_nba }}  
+          </span>
+        </h6>
+      </div>
+      <div class="compare-list text-left">
+        <div class="compare-list-content">
+          {{clgdata2.college_campus_area}}
+        </div>
+        <div class="compare-list-content">
+          <i class="fa fa-usd" aria-hidden="true">{{clgdata2.college_hotel_fee}}</i>
+        </div>
+        <div class="compare-list-content">
+          <i class="fa fa-usd" aria-hidden="true">{{clgdata2.college_other_fee}}</i>
+        </div>
+      </div>
+    </div>
+  </div>         
+
+<div class="col-md-3 compare-tab text-center" style="padding: 10px;">
+    <div class="compare-empty-body" ng-model="hidediv3" ng-hide="hidediv3">
+      <div class="col-md-12 compare-select-form">
+        <i class="fa fa-university" aria-hidden="true"></i>
+        <h5>Select College</h5>
+        <input type="text" class="form-control" name="clg3" id="clg3" placeholder="Search College" ng-model="clg3" ng-keyup="complete3(clg3)" autocomplete="off" ng-blur="fillbox3()" />
+                 <br>
+                 <ul class="list-group" ng-model="hidethis3" ng-hide="hidethis3" style="position: absolute; z-index: 1; color: black; border-left:1px solid grey; overflow:auto; max-height: 250px; margin-top: -22px;">
+                  <li class="list-group-item" ng-repeat="clgdata3 in filtercolg3" ng-mousedown="fillTextbox3(clgdata3.college_id,clgdata3.college_name, clgdata3.college_slug)">
+
+                     <div class="row">
+                        <div class="col-md-4">
+                        <img src="{{clgdata3.college_logo}}" style="width: 100%;border: 1px solid #fff;padding: 10px;" >
+                        </div>
+                        <div class="col-md-8">
+                          <p>{{clgdata3.college_name}} </p>
+                        </div>
+                        </div>
+                     </li>
+                 </ul>
+
+                 <button class="btn apply-btn" ng-click="clgdetails3()">Select College</button>
+        
+        
+      </div>
+      
+    </div> <!-- when this (above ) div hides then the div below will show  -->
+
+    <div class="compare-body" ng-model="hidediv3" ng-show="hidediv3">
+      <div class="compare-header">
+        <img ng-src="{{clgdata3.college_logo}}" width="100px" class="compare-logo">
+        <h5 class="collegename-wrap">{{clgdata3.college_name }}  </h5>
+        <h6>
+          <span style="color:#fe9d68;">
+            <i class="fa fa-map-marker" aria-hidden="true"> {{clgdata3.college_city}}</i>
+          </span>
+        </h6>
+        <h6>
+          <span style="color:#fe9d68;">
+            <i class="fa fa-university" aria-hidden="true"> {{clgdata3.college_type}} </i>
+            <i class="fa fa-map-signs" aria-hidden="true">{{clgdata3.college_estb_year }}</i> | NACC-{{clgdata3.college_nacc }} | NBA-{{clgdata3.college_nba }}  
+          </span>
+        </h6>
+      </div>
+      <div class="compare-list text-left">
+        <div class="compare-list-content">
+          {{clgdata3.college_campus_area}}
+        </div>
+        <div class="compare-list-content">
+          <i class="fa fa-usd" aria-hidden="true">{{clgdata3.college_hotel_fee}}</i>
+        </div>
+        <div class="compare-list-content">
+          <i class="fa fa-usd" aria-hidden="true">{{clgdata3.college_other_fee}}</i>
+        </div>
+      </div>
+    </div>
+  </div>         
+
+</div>
+<div class="clearfix"></div>
+
+<div class="col-md-12 text-center compare-container" ng-show="hidediv1 || hidediv2 || hidediv3" style="z-index:0;background-color:#fff;">
+  <div class="compare-div-header text-center">courses</div>
+  <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left" style="color:#f48c42;font-weight: bold;">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12"><i class="fa fa-book" aria-hidden="true"></i> course</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-text-width" aria-hidden="true"></i> major </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-usd" aria-hidden="true"></i> fees</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-hourglass-2" aria-hidden="true"></i> course duration</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-mortar-board" aria-hidden="true"></i>total intake</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-asterisk" aria-hidden="true"></i> requirements</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-inbox" aria-hidden="true"></i> rankings </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-tags" aria-hidden="true"></i>course type</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-check" aria-hidden="true"></i> affiliation</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-thumbs-up" aria-hidden="true"></i> approval</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-12"><i class="fa fa-share" aria-hidden="true"></i> branches</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                            <select ng-model="courseShow1" ng-options="course.coursename for course in clgdata1.collegecourses track by course.id" ng-change="getbranch1(courseShow1)" required >
+                              <option  value="" >- Please Select Course -</option>
+                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>{{courseShow1.coursename}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.fee}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.duration}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.quota}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.eligibility}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.seats}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.coursetype}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.aff}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow1.approval}}.</td>
+                    </tr>
+                    <tr>
+                        <td><div ng-repeat="b in brlist1">
+                            {{b.br}}
+                        </div></td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                            <select ng-model="courseShow2" ng-options="course.coursename for course in clgdata2.collegecourses track by course.id" ng-change="getbranch2(courseShow2)" required >
+                                <option  value="" >- Please Select Course -</option>
+                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.coursename}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.fee}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.duration}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.quota}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.eligibility}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.seats}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.coursetype}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.aff}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow2.approval}}.</td>
+                    </tr>
+                    <tr>
+                        <td><div ng-repeat="b in brlist2">
+                            {{b.br}}
+                        </div></td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                            <select ng-model="courseShow3" ng-options="course.coursename for course in clgdata3.collegecourses track by course.id" ng-change="getbranch3(courseShow3)" required >
+                                <option  value="" >- Please Select Course -</option>
+                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.coursename}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.fee}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.duration}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.quota}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.eligibility}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.seats}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.coursetype}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.aff}}.</td>
+                    </tr>
+                    <tr>
+                        <td>{{courseShow3.approval}}.</td>
+                    </tr>
+                    <tr>
+                        <td><div ng-repeat="b in brlist3">
+                            {{b.br}}
+                        </div></td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="col-md-12 text-center compare-container" ng-show="hidediv1 || hidediv2 || hidediv3" style="background-color:#fff;">
+    <div class="compare-div-header text-center">facility</div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left" style="color:#f48c42;font-weight: bold;">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12"><i class="fa fa-building" aria-hidden="true"></i> facility</td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                            <div class="cf" ng-repeat="facility1 in clgdata1.collegefacilities">
+                                <div> <img ng-src="{{facility1.facilityimage}}" width="20px" src=""> {{facility1.facility}} </div>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                          <div class="cf" ng-repeat="facility2 in clgdata2.collegefacilities">
+                                <div> <img ng-src="{{facility2.facilityimage}}" width="20px" src=""> {{facility2.facility}} </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                           <div class="cf" ng-repeat="facility3 in clgdata3.collegefacilities">
+                                <div> <img ng-src="{{facility3.facilityimage}}" width="20px" src=""> {{facility3.facility}} </div>
+                            </div> 
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="clearfix"></div>
+<div class="col-md-12 text-center compare-container" ng-show="hidediv1 || hidediv2 || hidediv3" style="background-color:#fff;">
+    <div class="compare-div-header text-center">placement</div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left" style="color:#f48c42;font-weight: bold;">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12"><i class="fa fa-building" aria-hidden="true"></i> company</td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                            <div id="c1b" ng-repeat="company1 in clgdata1.collegeplacement">
+                                <div class="compare-company-logo text-center"> <img ng-src="{{company1.companylogo}}" width="120px" src="{{company1.companylogo}}"> </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                           <div id="c1b" ng-repeat="company2 in clgdata2.collegeplacement">
+                                <div class="compare-company-logo text-center"> <img ng-src="{{company2.companylogo}}" width="120px" src="{{company2.companylogo}}"> </div>
+                            </div> 
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 compare-tab text-center" style="padding:10px;">
+        <div class="compare-body">
+            <div class="compare-list text-left">
+                <table class="table" style="width:100%;">
+                    <tbody><tr>
+                        <td class="col-md-12">
+                           <div id="c1b" ng-repeat="company3 in clgdata3.collegeplacement">
+                                <div class="compare-company-logo text-center"> <img ng-src="{{company3.companylogo}}" width="120px" src="{{company3.companylogo}}"> </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
