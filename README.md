@@ -1,5 +1,5 @@
 # Admission-Portal
-INFSCI 2560 WEB TECHNOLOGIES & STANDARDS
+WEB TECHNOLOGIES & STANDARDS
 Final Project: Admission Portal
 15 th April 2018
 Team Member s:
