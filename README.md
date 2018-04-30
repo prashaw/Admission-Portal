@@ -2,11 +2,8 @@
 WEB TECHNOLOGIES & STANDARDS
 Final Project: Admission Portal
 15 th April 2018
-Team Member s:
-Prashant Wankhede 
-Lei Bao 
-Bowen Xu 
-# Author: Prashant Wankhede (prw19), Lei Bao (leb129), Bowen Xu (box3)
+
+# Author: Prashant Wankhede 
 # Date: 15th April 2018
 # Admission Portal is a 'MEAN STACK' application
 #To run you need
